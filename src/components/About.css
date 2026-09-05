@@ -1,0 +1,35 @@
+.about {
+  padding: 120px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-eyebrow {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #3a3a3a;
+  max-width: 60ch;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 24px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,70 @@
+.projects {
+  padding: 120px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-eyebrow {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 48px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.project-card {
+  border: 1px solid rgba(21, 25, 34, 0.12);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.project-card h4 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.project-description {
+  color: #3a3a3a;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(224, 164, 88, 0.15);
+  color: #b57a2f;
+}
+
+.project-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  color: #151922;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #151922;
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 80px 24px;
+  }
+}

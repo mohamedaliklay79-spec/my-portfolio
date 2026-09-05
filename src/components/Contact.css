@@ -1,0 +1,41 @@
+.contact {
+  padding: 120px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-eyebrow {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.contact-text {
+  color: #3a3a3a;
+  margin-bottom: 32px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.contact-links a {
+  color: #151922;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #151922;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 80px 24px;
+  }
+  .contact-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
