@@ -36,7 +36,7 @@ const projects = [
       },
       {
         label: "Live Demo",
-        url: "https://sales-dashboard-dpjx.vercel.app/",
+        url: "https://sales-dashboard-dusky-five.vercel.app/",
       },
     ],
   },
