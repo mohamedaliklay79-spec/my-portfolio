@@ -32,7 +32,7 @@ const projects = [
     links: [
       {
         label: "GitHub",
-        url: "https://github.com/mohamedaliklay79-spec/sales-dashboard",
+        url: "https://sales-dashboard-dusky-five.vercel.app/",
       },
       {
         label: "Live Demo",
