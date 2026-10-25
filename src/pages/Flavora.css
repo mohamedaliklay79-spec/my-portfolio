@@ -1,0 +1,612 @@
+
+/* =========================
+   FLAVORA CASE STUDY PAGE
+========================= */
+
+.flavora-page {
+  --flavora-bg: #0b0d0b;
+  --flavora-card: #111410;
+  --flavora-text: #f4f5f1;
+  --flavora-muted: #a5aaa2;
+  --flavora-green: #b5f542;
+  --flavora-border: #2b3028;
+
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: var(--flavora-bg);
+  color: var(--flavora-text);
+  font-family: inherit;
+}
+
+.flavora-page *,
+.flavora-page *::before,
+.flavora-page *::after {
+  box-sizing: border-box;
+}
+
+.flavora-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.flavora-page h1,
+.flavora-page h2,
+.flavora-page h3,
+.flavora-page p {
+  margin-top: 0;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.flavora-nav {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.flavora-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.flavora-logo-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: var(--flavora-green);
+  color: #10130b;
+  font-weight: 900;
+}
+
+.flavora-back {
+  color: var(--flavora-muted) !important;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.flavora-back:hover {
+  color: var(--flavora-green) !important;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.flavora-hero {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 76px 24px 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.flavora-hero-content {
+  min-width: 0;
+  padding: 0;
+}
+
+.flavora-label {
+  margin-bottom: 22px;
+  color: var(--flavora-green);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+.flavora-hero h1 {
+  margin-bottom: 28px;
+  font-size: clamp(42px, 5.2vw, 76px);
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  overflow-wrap: break-word;
+}
+
+.flavora-hero h1 span {
+  color: var(--flavora-green);
+}
+
+.flavora-description {
+  max-width: 590px;
+  margin-bottom: 34px;
+  color: var(--flavora-muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.flavora-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.flavora-button {
+  min-height: 54px;
+  padding: 0 23px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--flavora-border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 750;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.flavora-button:hover {
+  transform: translateY(-3px);
+}
+
+.flavora-button-primary {
+  border-color: var(--flavora-green);
+  background: var(--flavora-green);
+  color: #10130b !important;
+}
+
+.flavora-button-primary:hover {
+  background: #c6ff63;
+}
+
+.flavora-button-secondary {
+  background: transparent;
+  color: var(--flavora-text) !important;
+}
+
+.flavora-button-secondary:hover {
+  border-color: var(--flavora-green);
+}
+
+.flavora-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flavora-tech span,
+.flavora-stack-list span {
+  padding: 11px 16px;
+  border: 1px solid var(--flavora-border);
+  border-radius: 10px;
+  background: var(--flavora-card);
+  color: #d9ddd4;
+  font-size: 13px;
+}
+
+/* =========================
+   PHONE MOCKUP
+========================= */
+
+.flavora-visual {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.flavora-glow {
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  border-radius: 50%;
+  background: var(--flavora-green);
+  opacity: 0.12;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.flavora-phone {
+  position: relative;
+  z-index: 1;
+  width: min(290px, 100%);
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid #3a4035;
+  border-radius: 30px;
+  background: #171a15;
+  box-shadow: 0 25px 90px rgb(0 0 0 / 40%);
+}
+
+.flavora-phone-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 21px;
+  object-fit: cover;
+}
+
+/* =========================
+   PROJECT OVERVIEW
+========================= */
+
+.flavora-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 80px max(32px, calc((100% - 1080px) / 2));
+  border-top: 1px solid var(--flavora-border);
+  border-bottom: 1px solid var(--flavora-border);
+  background: #10120f;
+}
+
+.flavora-overview .flavora-label {
+  margin-bottom: 15px;
+}
+
+.flavora-overview h2,
+.flavora-screenshots h2,
+.flavora-features h2,
+.flavora-stack h2 {
+  margin-bottom: 20px;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.flavora-overview > p {
+  margin-bottom: 0;
+  color: var(--flavora-muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* =========================
+   SCREENSHOT GALLERY
+========================= */
+
+.flavora-screenshots {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.flavora-screenshots > .flavora-label {
+  margin-bottom: 14px;
+}
+
+.flavora-gallery-description {
+  margin-bottom: 42px;
+  color: var(--flavora-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.flavora-screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.flavora-screenshot-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--flavora-border);
+  border-radius: 18px;
+  background: var(--flavora-card);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.flavora-screenshot-card:hover {
+  transform: translateY(-5px);
+  border-color: #59634b;
+}
+
+.flavora-screenshot-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  padding: 16px;
+  background: #171a15;
+}
+
+.flavora-screenshot-image img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  max-height: 430px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.flavora-screenshot-info {
+  padding: 22px;
+}
+
+.flavora-screenshot-info h3 {
+  margin-bottom: 9px;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.flavora-screenshot-info p {
+  margin-bottom: 0;
+  color: var(--flavora-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.flavora-features {
+  padding: 90px max(32px, calc((100% - 1080px) / 2));
+  border-top: 1px solid var(--flavora-border);
+  background: #10120f;
+}
+
+.flavora-features > .flavora-label {
+  margin-bottom: 14px;
+}
+
+.flavora-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 38px;
+}
+
+.flavora-feature-card {
+  min-width: 0;
+  padding: 25px 22px;
+  border: 1px solid var(--flavora-border);
+  border-radius: 16px;
+  background: var(--flavora-card);
+  transition: border-color 0.2s ease;
+}
+
+.flavora-feature-card:hover {
+  border-color: var(--flavora-green);
+}
+
+.flavora-feature-card > span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  background: rgb(181 245 66 / 12%);
+  color: var(--flavora-green);
+  font-size: 24px;
+}
+
+.flavora-feature-card h3 {
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+.flavora-feature-card p {
+  margin-bottom: 0;
+  color: var(--flavora-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================
+   TECHNOLOGY STACK
+========================= */
+
+.flavora-stack {
+  width: min(1080px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 90px 24px;
+  text-align: center;
+}
+
+.flavora-stack > .flavora-label {
+  margin-bottom: 14px;
+}
+
+.flavora-stack-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.flavora-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 28px max(32px, calc((100% - 1080px) / 2));
+  border-top: 1px solid var(--flavora-border);
+  color: var(--flavora-muted);
+  font-size: 14px;
+}
+
+.flavora-footer p {
+  margin-bottom: 0;
+}
+
+.flavora-footer a {
+  color: var(--flavora-green);
+  font-weight: 700;
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 900px) {
+  .flavora-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+    gap: 28px;
+    padding-top: 60px;
+  }
+
+  .flavora-hero h1 {
+    font-size: clamp(40px, 6vw, 58px);
+    letter-spacing: -2px;
+  }
+
+  .flavora-screenshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flavora-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flavora-overview {
+    gap: 32px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .flavora-nav {
+    width: calc(100% - 32px);
+    padding: 20px 0;
+  }
+
+  .flavora-logo {
+    font-size: 18px;
+  }
+
+  .flavora-back {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .flavora-hero {
+    width: calc(100% - 24px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 45px;
+    padding: 48px 12px 65px;
+  }
+
+  .flavora-hero h1 {
+    font-size: clamp(38px, 10vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -1.8px;
+  }
+
+  .flavora-description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .flavora-actions {
+    align-items: stretch;
+  }
+
+  .flavora-button {
+    min-height: 50px;
+    padding: 0 15px;
+    font-size: 13px;
+  }
+
+  .flavora-tech {
+    gap: 8px;
+  }
+
+  .flavora-tech span {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .flavora-visual {
+    padding: 0 12px;
+  }
+
+  .flavora-phone {
+    width: min(280px, 100%);
+  }
+
+  .flavora-overview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 55px 24px;
+  }
+
+  .flavora-overview h2,
+  .flavora-screenshots h2,
+  .flavora-features h2,
+  .flavora-stack h2 {
+    font-size: 30px;
+  }
+
+  .flavora-screenshots {
+    width: calc(100% - 24px);
+    padding: 65px 12px;
+  }
+
+  .flavora-screenshot-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .flavora-screenshot-image {
+    min-height: 220px;
+  }
+
+  .flavora-screenshot-image img {
+    max-height: 390px;
+  }
+
+  .flavora-features {
+    padding: 60px 24px;
+  }
+
+  .flavora-feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .flavora-stack {
+    width: calc(100% - 24px);
+    padding: 60px 12px;
+  }
+
+  .flavora-stack-list {
+    gap: 8px;
+  }
+
+  .flavora-stack-list span {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .flavora-footer {
+    padding: 24px;
+  }
+}

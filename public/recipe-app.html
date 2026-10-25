@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flavora — Recipe Mobile App · Case Study</title>
+  <meta name="description" content="Flavora is a React Native recipe app with a Node.js, Express and MongoDB backend." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #151922;
+      --paper: #f6f4ef;
+      --amber: #e0a458;
+      --muted: #5b5f68;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+    a { color: inherit; }
+
+    .topbar { background: var(--ink); padding: 16px 24px; }
+    .topbar a { color: #f6f4ef; text-decoration: none; font-size: 0.95rem; }
+    .topbar a:hover { color: var(--amber); }
+
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    .hero { padding: 72px 0 48px; }
+    .eyebrow { color: var(--amber); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem; }
+    h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.1; margin: 8px 0 16px; letter-spacing: -0.02em; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+    .tag { font-size: 0.8rem; padding: 4px 12px; border-radius: 4px; background: rgba(224, 164, 88, 0.18); color: #b57a2f; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: transform 0.15s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink); color: var(--paper); }
+    .btn-outline { border: 1px solid var(--ink); }
+
+    section { padding: 48px 0; }
+    h2 { font-family: "Space Grotesk", sans-serif; font-size: 1.7rem; margin-bottom: 20px; }
+    p + p { margin-top: 14px; }
+
+    .features { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .features li { background: #fff; border: 1px solid rgba(21, 25, 34, 0.1); border-radius: 8px; padding: 18px; }
+    .features strong { display: block; font-family: "Space Grotesk", sans-serif; margin-bottom: 4px; }
+    .features span { color: var(--muted); font-size: 0.92rem; }
+
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 22px; }
+    .gallery figure { cursor: zoom-in; }
+    .gallery img { width: 100%; display: block; border: 6px solid var(--ink); border-radius: 26px; background: #000; transition: transform 0.2s ease; }
+    .gallery figure:hover img { transform: translateY(-4px); }
+    .gallery figcaption { text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+    .gallery-empty { color: var(--muted); }
+
+    .arch { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .arch div { border: 1px solid rgba(21, 25, 34, 0.12); border-radius: 8px; padding: 20px; }
+    .arch h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.05rem; margin-bottom: 6px; }
+    .arch p { color: var(--muted); font-size: 0.93rem; }
+
+    pre { background: var(--ink); color: #f6f4ef; padding: 18px 20px; border-radius: 8px; overflow-x: auto; font-size: 0.88rem; margin-top: 18px; }
+    ul.plain { padding-left: 20px; }
+    ul.plain li { margin-bottom: 8px; }
+
+    footer { background: var(--ink); color: #cfcbc0; text-align: center; padding: 24px; font-size: 0.9rem; margin-top: 40px; }
+
+    #lightbox { position: fixed; inset: 0; background: rgba(21, 25, 34, 0.92); display: none; align-items: center; justify-content: center; padding: 24px; z-index: 50; cursor: zoom-out; }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-height: 92vh; max-width: 92vw; border-radius: 24px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap"><a href="/#projects">← Back to portfolio</a></div>
+  </div>
+
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Case Study · Mobile App</p>
+      <h1>Flavora</h1>
+      <p class="lead">A recipe app for browsing, saving and adding recipes, built with React Native and a custom REST API backed by MongoDB.</p>
+      <div class="tags">
+        <span class="tag">React Native</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">MongoDB</span>
+      </div>
+      <div class="buttons" id="buttons"></div>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p>Flavora is a mobile recipe app. Users browse recipes by category, open a recipe to see its details, save favorites, and add their own recipes.</p>
+      <p>The app talks to a REST API I built with Node.js and Express, which stores all recipe data in MongoDB. The mobile client and the API live in the same repository.</p>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <ul class="features">
+        <li><strong>Recipes</strong><span>Browse a list of recipes and open any one for full details.</span></li>
+        <li><strong>Categories</strong><span>Filter recipes by category to find what you want faster.</span></li>
+        <li><strong>Favorites</strong><span>Save the recipes you like and come back to them.</span></li>
+        <li><strong>Add recipes</strong><span>Create your own recipes from inside the app.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <div class="gallery" id="gallery"></div>
+      <p class="gallery-empty" id="gallery-empty" hidden>Screenshots coming soon.</p>
+    </section>
+
+    <section>
+      <h2>How it's built</h2>
+      <div class="arch">
+        <div>
+          <h3>Mobile app</h3>
+          <p>React Native with TypeScript. Screens call the API through a small client module and render the results.</p>
+        </div>
+        <div>
+          <h3>Backend API</h3>
+          <p>Node.js and Express. REST endpoints for recipes, categories and favorites.</p>
+        </div>
+        <div>
+          <h3>Database</h3>
+          <p>MongoDB stores the recipes and their related data.</p>
+        </div>
+      </div>
+<pre>recipes-app-flavora/
+├── App.tsx, api.ts, pages/   ← React Native app
+├── android/, ios/            ← native projects
+└── backend/                  ← Node.js + Express API</pre>
+    </section>
+
+    <section>
+      <h2>What this project shows</h2>
+      <ul class="plain">
+        <li>Building a full-stack product: mobile client, REST API and database.</li>
+        <li>Designing and querying a MongoDB data model.</li>
+        <li>Connecting a React Native app to a backend I wrote myself.</li>
+        <li>Packaging the app as an installable Android build.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>© 2026 Zid Mohamed Ali</footer>
+
+  <div id="lightbox"><img alt="" /></div>
+
+  <script>
+    // ---- Edit these ----
+    const REPO_URL = "https://github.com/mohamedaliklay79-spec/recipes-app-flavora";
+    const APK_URL = ""; // paste your GitHub Release APK link here to show a Download button
+
+    const screenshots = [
+      { file: "1.png", caption: "Recipes" },
+      { file: "2.png", caption: "Categories" },
+      { file: "3.png", caption: "Recipe details" },
+      { file: "4.png", caption: "Favorites" },
+      { file: "5.png", caption: "Add a recipe" },
+      { file: "6.png", caption: "More" },
+    ];
+    // --------------------
+
+    const buttons = document.getElementById("buttons");
+    function addButton(label, url, primary) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noreferrer";
+      a.className = "btn " + (primary ? "btn-primary" : "btn-outline");
+      a.textContent = label;
+      buttons.appendChild(a);
+    }
+    addButton("View source on GitHub", REPO_URL, true);
+    if (APK_URL) addButton("Download APK", APK_URL, false);
+
+    const gallery = document.getElementById("gallery");
+    const empty = document.getElementById("gallery-empty");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    let remaining = screenshots.length;
+
+    screenshots.forEach((s) => {
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      img.src = "/recipe-app/" + s.file;
+      img.alt = s.caption;
+      img.loading = "lazy";
+      img.onerror = () => {
+        figure.remove();
+        remaining--;
+        if (remaining === 0) empty.hidden = false;
+      };
+      figure.onclick = () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("open");
+      };
+      const cap = document.createElement("figcaption");
+      cap.textContent = s.caption;
+      figure.appendChild(img);
+      figure.appendChild(cap);
+      gallery.appendChild(figure);
+    });
+
+    lightbox.onclick = () => lightbox.classList.remove("open");
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") lightbox.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

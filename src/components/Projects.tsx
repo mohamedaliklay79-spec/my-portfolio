@@ -1,4 +1,5 @@
 import "./Projects.css";
+import { Link } from "react-router-dom";
 
 const GITHUB_PROFILE = "https://github.com/mohamedaliklay79-spec";
 
@@ -65,18 +66,26 @@ function Projects() {
                 ))}
               </div>
 
-              <div className="project-links">
-                {project.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+              
+<div className="project-links">
+  {project.name === "Recipe Mobile App" && (
+    <Link to="/projects/flavora" className="case-study-link">
+      View Case Study
+    </Link>
+  )}
+
+  {project.links.map((link) => (
+    <a
+      key={link.label}
+      href={link.url}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {link.label}
+    </a>
+  ))}
+</div>
+
             </div>
           ))}
         </div>

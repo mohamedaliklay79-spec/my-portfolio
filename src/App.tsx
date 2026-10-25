@@ -1,50 +1,52 @@
-import "./App.css";
-import profile from "./assets/profile.png";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
-function App() {
+import Flavora from "./pages/Flavora";
+import "./App.css";
+
+function PortfolioHome() {
   return (
-    <>
+    <div className="portfolio-home">
       <Navbar />
-      <main>
-        <section id="home" className="hero">
-          <div className="hero-content">
-            <p className="hero-greeting">Hello, I'm</p>
-            <h1>Zid Mohamed Ali</h1>
-            <h2>Computer Science Student</h2>
-            <p className="hero-description">
-              I'm a computer science student passionate about technology and
-              software development.
-            </p>
-            <div className="hero-buttons">
-              <a href="#projects" className="btn btn-primary">
-                View My Projects
-              </a>
-              <a href="#contact" className="btn btn-secondary">
-                Contact Me
-              </a>
-            </div>
-          </div>
-          <div className="hero-image">
-            <img src={profile} alt="Profile" />
-          </div>
-        </section>
-
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Education />
+      <Contact />
+    </div>
   );
 }
 
-export default App;
+function AppRoutes() {
+  const location = useLocation();
+
+  return (
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<PortfolioHome />} />
+      <Route path="/projects/flavora" element={<Flavora />} />
+      <Route path="*" element={<PortfolioHome />} />
+    </Routes>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}

@@ -1,23 +1,42 @@
-import "./About.css";
+﻿import "./About.css";
 
 function About() {
   return (
-    <section id="about" className="about">
-      <div className="about-inner">
-        <h3 className="about-eyebrow">About</h3>
-        <div className="about-grid">
-          <p className="about-text">
-            I'm a Computer Science student focused on building software that
-            works end-to-end — from backend APIs to the interfaces people
-            actually touch. I like taking a project from an idea to something
-            functional, then refining it until it feels right.
+    <section id="about" className="about-section">
+      <div className="about-container">
+        <div className="about-image-container">
+          <img
+            src="/profile_under_1mb.png"
+            alt="Mohamed Ali"
+            className="about-profile-image"
+          />
+        </div>
+
+        <div className="about-content">
+          <p className="about-label">ABOUT ME</p>
+
+          <h2>
+            Hi, I'm <span>Mohamed Ali</span>
+          </h2>
+
+          <h3>Computer Science Student</h3>
+
+          <p className="about-description">
+            I'm a Computer Science student passionate about software
+            development and building useful digital solutions. I enjoy
+            developing web applications and mobile apps, learning new
+            technologies, and turning ideas into real projects.
           </p>
-          <p className="about-text">
-            My interests sit mostly in web and mobile development, with some
-            time spent on embedded systems and hardware-adjacent projects.
-            I'm currently sharpening my skills in React, Node.js, and
-            database design while exploring where I want to specialize next.
+
+          <p className="about-description">
+            My experience includes React, TypeScript, React Native,
+            Node.js, Express, and MongoDB. I'm continuously improving
+            my skills through personal projects and practical learning.
           </p>
+
+          <a href="#projects" className="about-projects-button">
+            Explore My Projects
+          </a>
         </div>
       </div>
     </section>
